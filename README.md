@@ -27,3 +27,9 @@ Table of Contents
 - Communication
 - Security
 -----------------
+
+## Scalability
+- Clones
+- Databases
+- Caches
+- Asynchronism
