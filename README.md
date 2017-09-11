@@ -45,3 +45,8 @@ Table of Contents
 		- Cached Database Queries: The resulset is stored in cache where the hashed query acts as key. Has issues with expiration and complex query. If a column is added to a table, all queries that uses that table has to be deleted.
 		- Cached Objects: Better option where data is treated as an object. When the application has completed assembling the data, it can be directly stored in cache. The application just consumes the latest cached object and nearly never touches the databases anymore
 - Asynchronism
+	- Asynchronism is useful to avoid the user waiting for a service. While the requested service is being processed, user can navigate to other pages on the website
+	- A messaging system like RabbitMQ can take a queue of task that a worker can process
+	- There are two ways asynchronism can be done:
+		- Async 1: Process time-consuming task in advance and serve the finished work in low request time. Eg convert dynamic site content to static. Results in a super responsive website
+		- Async 2: When a very consuming task is requested, the job is added to queue and frontend immediately notifies the user that the task will take some time, please continue to browse the page. When the job is finished, the messaging system notifies the frontend to handle the response.
