@@ -38,4 +38,10 @@ Table of Contents
 	- Path 1: Hire a DBA and tell him to do Master-Slave replication. Slave is for read-only, Master is for write-only. Add more RAM to Master server for performance. In the long run, it is better to go with Path 2
 	- Path 2: Redesign your application to not use JOINS. Either stay with MySQL or switch to scalable NoSQL database like MongoDB. When the application gets slower due to your app doing all the dataset joins, it's time to introduce cache
 - Caches
+	- Cache is a simple key-value store that sits as a buffer between application and data store. Cache are lightning fast
+	- Always opt for in-memory cache like Redis. Never do file-based cache, it makes cloning and scaling a pain
+	- User sessions should always be cached
+	- There are two patterns of caching data
+		- Cached Database Queries: The resulset is stored in cache where the hashed query acts as key. Has issues with expiration and complex query. If a column is added to a table, all queries that uses that table has to be deleted.
+		- Cached Objects: Better option where data is treated as an object. When the application has completed assembling the data, it can be directly stored in cache. The application just consumes the latest cached object and nearly never touches the databases anymore
 - Asynchronism
