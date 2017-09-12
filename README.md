@@ -72,3 +72,15 @@ Table of Contents
 -----------------
 
 ## Consistency patterns
+1. Weak Consistency
+	- After a write, reads may or may not see it
+	- VoIP, video chat. What was spoken during connection loss, will not be repeated
+2. Eventual Consistency
+	- After a write, reads will eventually see it (typically within milliseconds)
+	- Search Engine Indexing, Email services
+3. Strong Consistency
+	- After a write, reads will see it. Data is replicated synchronously
+	- File systems and RDBMSes. Works well where transactions are needed
+-----------------
+
+## Availability patterns
