@@ -8,9 +8,8 @@ URL: http://www.andrewgurung.com/
 
 Table of Contents
 -----------------
-- Performance vs scalability
-- Latency vs throughput
-- Availability vs consistency
+- Scalability
+- High-level trade-off
 - Consistency patterns
 - Availability patterns
 - Domain name system
@@ -50,3 +49,8 @@ Table of Contents
 	- There are two ways asynchronism can be done:
 		- Async 1: Process time-consuming task in advance and serve the finished work in low request time. Eg convert dynamic site content to static. Results in a super responsive website
 		- Async 2: When a very consuming task is requested, the job is added to queue and frontend immediately notifies the user that the task will take some time, please continue to browse the page. When the job is finished, the messaging system notifies the frontend to handle the response.
+-----------------
+## High-level trade-off
+### Performance vs scalability
+### Latency vs throughput
+### Availability vs consistency
