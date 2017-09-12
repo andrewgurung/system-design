@@ -52,5 +52,23 @@ Table of Contents
 -----------------
 ## High-level trade-off
 ### Performance vs scalability
+- Performance problem: System is slow for a single user
+- Scalability problem: System is fast for a single user, but slows down under heavy load 
+
 ### Latency vs throughput
+- Latency is the time required to perform some action or to produce some result
+- Throughput is the number of such actions executed or results produced per unit of time
+- Aim for maximal throughput with acceptable latency
+
 ### Availability vs consistency
+- According to CAP theorem, only two out of the following three guarantees across a write/read pair
+	- Consistency: A read will guarantee the most recent write
+	- Availability: A non-failing node will return available data that could be stale
+	- Partition Tolerance: The system will continue to function when network partitions occur
+- Since network failure is inevitable and out of our reach, we should always consider Partition Tolerance
+- Taking Partition Tolerance into consideration, we can have two combination
+	- CP (Consistency/Partition Tolerance):  Wait for a response from the partitioned node which could result in a timeout error. Useful when your business requirements dictate atomic reads and writes
+	- AP (Availability/Partition Tolerance):  Return the most recent version of the data you have, which could be stale. This system state will also accept writes that can be processed later when the partition is resolved. Useful when your business allows some flexibility around when the data in the system synchronizes (shopping carts)
+-----------------
+
+## Consistency patterns
