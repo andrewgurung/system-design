@@ -84,3 +84,18 @@ Table of Contents
 -----------------
 
 ## Availability patterns
+There are two main patterns to support high availability: fail-over and replication
+
+### Fail-over
+1. Active-passive
+	- Heartbeats are sent between active and passive server on standby
+	- If there is any interruption in heartbeat, the passive server will take over active server's IP and starts service
+	- Downtime can vary depending on the status of passive server. Cold standby will result in more downtime than hot standby 
+2. Active-active
+	- Both servers are managing traffic, spreading the load between them
+	- For public facing servers, DNS has to know IP addresses of both servers
+	- For internal facing servers, application logic would need to know about both servers
+
+### Replication
+- Master-slave replication
+- Master-master replication
