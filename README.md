@@ -99,3 +99,17 @@ There are two main patterns to support high availability: fail-over and replicat
 ### Replication
 - Master-slave replication
 - Master-master replication
+-----------------
+
+## Domain name system (DNS)
+- DNS translates a domain name such as www.example.com to an IP address
+- Your ISP provides information about which DNS to contact when doing lookup
+- Some DNS can route traffic based on latency, geolocation or weighted round robin
+- DNS are complex systems which can sometimes become a victim of DDoS attack
+
+### Some DNS terms
+- NS record (name server) - Specifies the DNS servers for your domain/subdomain
+- MX record (mail exchange) - Specifies the mail servers for accepting messages
+- A record (address) - Points a name to an IP address
+- CNAME (canonical) - Points a name to another name or CNAME (example.com to www.example.com) or to an A record
+-----------------
