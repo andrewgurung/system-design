@@ -113,3 +113,20 @@ There are two main patterns to support high availability: fail-over and replicat
 - A record (address) - Points a name to an IP address
 - CNAME (canonical) - Points a name to another name or CNAME (example.com to www.example.com) or to an A record
 -----------------
+
+## Content delivery network (CDN)
+- A CDN is a globally distributed network of proxy servers that serves content from location closer to the user
+- Content are mostly static like HTML, CSS, JS, photo, video etc. But Amazon CDN can also serve dynamic content
+
+### Types of CDN
+1. Push CDN
+- Developer has to upload content to CDN server whenever there are any new changes
+- Minimizes traffic load to your server, but increases the storage on CDN server which can be costly
+
+2. Pull CDN
+- When user requests content for the first time, it goes to your server directly
+- This results in slower request until the content is cached on CDN
+- A time-to-live (TTL) determines how long content is cached
+- Useful for heavy traffic websites
+- Minimal storage on CDN
+-----------------
