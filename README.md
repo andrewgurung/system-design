@@ -130,3 +130,5 @@ There are two main patterns to support high availability: fail-over and replicat
 - Useful for heavy traffic websites
 - Minimal storage on CDN
 -----------------
+
+## Load balancer
