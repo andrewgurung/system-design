@@ -132,3 +132,53 @@ There are two main patterns to support high availability: fail-over and replicat
 -----------------
 
 ## Load balancer
+- Distribute incoming client request to workers (application servers and databases)
+- Prevents request going to unhealthy server
+- SSL termination: Decrypt request and encrypt response to avoid expensive operation for servers
+- Session persistence: Issue cookies and route a specific client's request to a particular instance. Web apps can outsource session persistence to load balancers
+
+### Layer 4 vs Layer 7 load balancing
+- Layer 4: Transport Layer
+	- Involves source and destination IP addresses, ports etc. But not the content
+- Layer 7: Application Layer
+	- Involves content of header, message and cookies to open connection to selected server
+	- Use case: Route video traffic to regular video hosting server and direct sensitive billing traffic to security-hardened servers
+
+### Horizontal VS Vertical scaling
+- Horizontal Scaling
+	- Add more machines or clones
+	- Database horizontal scaling: Partitioning of data where each node only contains part of the data. Cassandra, MongoDB
+
+- Vertical Scaling
+	- Add more RAM or memory on same machine
+	- Database vertical scaling: Data resides in a single node. Scaling is done through multi-core. MySQL - Amazon RDS. Switching vertically from smaller to bigger machine in cloud
+-----------------
+
+## Reverse proxy (web server)
+
+-----------------
+
+## Application layer
+
+-----------------
+
+## Database
+### Relational database management system (RDBMS)
+### NoSQL
+### SQL or NoSQL
+
+-----------------
+
+## Cache
+
+-----------------
+
+## Asynchronism
+
+-----------------
+
+## Communication
+
+-----------------
+
+## Security
