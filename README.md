@@ -155,7 +155,15 @@ There are two main patterns to support high availability: fail-over and replicat
 -----------------
 
 ## Reverse proxy (web server)
-
+![Image](https://camo.githubusercontent.com/e88216d0999853426f72b28e41223f43977d22b7/687474703a2f2f692e696d6775722e636f6d2f6e3431417a66662e706e67)
+- A webserver that acts as a mediator to public request and provides a unified interface
+- Has multiple benefits:
+	- Increased security: Hide information about backend servers and block blacklisted IPs
+	- SSL termination
+	- Caching
+	- Serve static content
+- Load balancer is normally used when you have multiple servers serving the same function
+- Reverse proxy is used with just one web or application server for the benefits highlighted above
 -----------------
 
 ## Application layer
