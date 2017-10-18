@@ -167,7 +167,10 @@ There are two main patterns to support high availability: fail-over and replicat
 -----------------
 
 ## Application layer
-
+- Web layer can be separated out from application layer
+- Having a separate application or platform layer allows you to scale and configure independently
+- Service Discovery tools like Consul and Zookeeper can be used to find services through registered names, addresses and ports
+- Use case: Adding a new API results in adding application servers without necessarily adding additional web servers (for presentation)
 -----------------
 
 ## Database
