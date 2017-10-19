@@ -175,6 +175,66 @@ There are two main patterns to support high availability: fail-over and replicat
 
 ## Database
 ### Relational database management system (RDBMS)
+- A relational database is a collection of data items organized in tables
+- ACID is a set of properties of relation database transactions
+	- Atomicity: Each transaction is all or nothing
+	- Consistency: Any transaction will bring database from one valid state to another
+	- Isolation: Transaction can run both concurrently as well as serially
+	- Durability: A committed transaction will remain so
+
+### Scaling a relational database
+1. Master-slave replication
+- Master: Read-write
+- Slave: Read only which replicates data from master
+- If master is offline, slave serves data in read-only mode until one of the slaves is promoted as Master
+- Cons:
+	- Additional logic is needed to promote a slave to a master
+	- More writes leads to more slave replication which bogs down the read performance of slaves
+2. Master-master replication
+- Both masters serve read and writes
+- Co-ordinates with each other on writes for replication
+- If one master goes down, the other will continue to serve both reads and writes
+- Cons:
+	- Need load balancer to decide where to write
+	- Increased write latency due to synchronization
+
+3. Federation
+- Federation splits up databases by function
+- Split a single monolithic database into smaller databases like forums, users and products
+- Reduces replication lag
+- Smaller database result can fit in memory and improves cache locality
+- Cons:
+	- Joining data from two databases is more complex with a server link
+	- Not effective if your schema requires huge functions or tables
+
+4. Sharding
+- Breaks a data into different subsets and distribute them into different databases
+- For instance: Break User database into User[A-F], User[G-I] and User[X-Z]
+- Similar to the advantages of Federation
+- Cons:
+	- Joining data from multiple shards is more complex
+	- Data distribution can become lopsided in a shard
+
+5. Denormalization
+- Redundant copies of data are written in multiple tables to avoid expensive joins
+- Attempts to improve read performance at the expense of some write performance
+- In most systems Read:Write ratio is between 100:1 to 1000:1, so read query must be optimized to avoid complex database joins
+- PostgreSQL and Oracle support materialized views which stores redundant information
+- Cons:
+	- Data is duplicated
+	- A denormalized databases performs worse under heavy writes
+
+6. SQL tuning
+- Benchmarking and profiling can point to the optimization ideas
+- Benchmark: Simulate high-load situations with tools such as `ab`
+- Profile: Enable tools such as the `slow query log` to help track performance issues
+- Tips:
+	- Use `CHAR` instead of `VARCHAR` for fixed-length fields
+	- Use `TEXT` for blog posts which supports boolean search
+	- Use `DECIMAL` for currency to avoid floating point representation errors
+	- Use location to object instead of large `BLOBS`
+	- Set the `NOT NULL` constraint where applicable to improve search performance
+	
 ### NoSQL
 ### SQL or NoSQL
 
