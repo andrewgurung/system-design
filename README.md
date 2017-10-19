@@ -236,7 +236,53 @@ There are two main patterns to support high availability: fail-over and replicat
 	- Set the `NOT NULL` constraint where applicable to improve search performance
 	
 ### NoSQL
+- NoSQL is a collection of data items represented in key-value store, document-store, wide column store or a graph database
+- Lacks true ACID
+- BASE properties:
+	- Basically available: The system guarantees availability
+	- Soft state: The state of system may change over time even without input
+	- Eventual Consistency: System will be consistent over a period of time, given there is no input during that period
+
+1. Key-value store
+- Allows O(1) for read and write
+- Often backed by memory or SSD
+- Simple data models for rapidly changing data
+
+2. Document-store
+- All information for a given object is stroed in a document
+- Document-store provide APIs or query language to search based on the internal structure of the document itself
+- High flexibility and often used with occasionally changing data
+- MongoDB, CouchDB
+
+3. Wide column store
+![Wide column store](https://camo.githubusercontent.com/823668b07b4bff50574e934273c9244e4e5017d6/687474703a2f2f692e696d6775722e636f6d2f6e3136694f476b2e706e67)
+- Basic unit of data is a column (name/value) pair
+- Columns can be grouped in column families which can be further grouped as super column family
+- Offer high availability and high scalability
+- HBase, Cassandra, BigTable
+
+4. Graph database
+- Each node is a record and each edge is a relationship between two nodes
+- Offer high performance for data models with complex relationships like social network
+- Relatively new and many graphs can only be accessed with REST APIs
+
 ### SQL or NoSQL
+Reasons for SQL
+- Structured data
+- Strict schema
+- Relational data
+- Need for complex joins
+- Transactions
+- More established: developers, community, code, tools, etc
+- Lookups by index are very fast
+
+Reasons for NoSQL
+- Semi-structured data
+- Dynamic or flexible schema
+- Non-relational data
+- No need for complex joins
+- Store many TB (or PB) of data
+- Very data intensive workload
 
 -----------------
 
