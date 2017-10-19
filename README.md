@@ -287,6 +287,14 @@ Reasons for NoSQL
 -----------------
 
 ## Cache
+- Caching improves page load time and reduces load on servers and databases
+- If dispatcher finds a previous result it returns that information to prevent the actual execution on your server/database
+- Types of Caching
+	- Client caching: Browsers
+	- CDN caching
+	- Web server caching: Reverse proxies can serve static and dynamic content directly
+	- Database caching
+	- Application caching: In-memory caches such as Memcached and Redis are key-value stores between your application and your data storage
 
 -----------------
 
