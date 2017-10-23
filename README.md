@@ -335,7 +335,38 @@ Reasons for NoSQL
 -----------------
 
 ## Communication
+### Hypertext transfer protocol (HTTP)
+- HTTP is a method for encoding and transporting data between client and server
+- HTTP is an application layer protocol relying on lower-level protocols such as TCP and UDP
+- HTTP request consists of a verb (method) and resource (endpoint)
+- Common HTTP verbs:
+	- GET: Reads a resource
+	- POST: Creates a resource or trigger a process that handles data
+	- PUT: Creates or replace a resource
+	- PATCH: Partially updates a resource
+	- DELETE: Deletes a resource
 
+### Transmission control protocol (TCP)
+- Connection oriented protocol over an IP network
+- Connection is established and terminated using handshake
+- Guarantees packet to reach with original order, if not data is resent
+- Useful for applications that require high reliability but are less time critical
+- Web servers, SMTP, FTP, SSH
+
+### User datagram protocol (UDP)
+- UDP is connectionless
+- Datagrams (analogous to packets) are guaranteed only at the datagram level
+- Less reliable but works well in real time use cases such as VoIP, video chat, streaming, and realtime multiplayer games
+
+### Remote procedure call (RPC)
+- Client causes a procedure to execute on a different address space, usually a remote server
+- Involves client stub procedure, marshalling request message, unmarshalling result
+- Disadvantage: RPC clients become tightly coupled to the service implementation
+
+### Representational state transfer (REST)
+- An architectural style enforcing a client/server model where the client acts on a set of resources managed by the server
+- It minimizes the coupling between client/server and is often used for public HTTP API
+- Communication must be stateless and cacheable
 -----------------
 
 ## Security
