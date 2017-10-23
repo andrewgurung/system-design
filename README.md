@@ -370,3 +370,8 @@ Reasons for NoSQL
 -----------------
 
 ## Security
+- Encrypt in transit and at rest
+- Sanitize all user inputs or any input parameters exposed to user to prevent XSS and SQL injection
+- Use parameterized queries to prevent SQL injection
+- Use the principle of least privilege
+[OWASP Top Ten Cheat Sheet](https://www.owasp.org/index.php/OWASP_Top_Ten_Cheat_Sheet)
