@@ -295,6 +295,30 @@ Reasons for NoSQL
 	- Web server caching: Reverse proxies can serve static and dynamic content directly
 	- Database caching
 	- Application caching: In-memory caches such as Memcached and Redis are key-value stores between your application and your data storage
+	
+### When to update the cache	
+- You can only store a limited about of data in cache. So be careful when choosing cache update strategy
+1. Cache-aside
+	- Lazy loading where data is only cached upon request
+	- Steps:
+		- Look for entry in cache, if not found (cache miss)
+		- Load entry from database
+		- Add entry to cache
+		- Return entry
+2. Write-through
+	- Cache acts as the primary data store, reading and writing data to it. Synchronously the cache reads/writes data into database
+	- Steps:
+		- Application adds/updates entry to cache
+		- Cache synchronously writes entry to database
+		- Return
+3. Write-behind
+	- Cache acts as the primary data store, reading and writing data to it. Asynchronously the cache reads/writes data into database
+	- Steps:
+		- Application adds/updates entry to cache
+		- Cache asynchronously writes entry to database improving write performance
+		- Return
+4. Refresh-ahead
+	- Cache is configured to be automatically refreshed prior to its expiration	
 
 -----------------
 
