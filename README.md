@@ -323,7 +323,15 @@ Reasons for NoSQL
 -----------------
 
 ## Asynchronism
-
+- Asynchronism is useful to avoid the user waiting for a service
+1. Message queues
+	- Receive, hold and deliver messages
+	- User is not blocked and job is processed in background
+	- Redis, RabbitMQ, Amazon SQS
+2. Task queues
+	- Recieve tasks and their related data, runs them and delivers their results
+	- Supports scheduling and runs intensive jobs in the background
+	- Celery: Python support
 -----------------
 
 ## Communication
